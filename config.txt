@@ -1,0 +1,40 @@
+# RPi3 headless power saving config
+
+# reduce soc power consumption
+force_turbo=0
+arm_freq=900
+arm_freq_min=100
+gpu_freq=25
+sdram_freq_min=100
+over_voltage=-2
+over_voltage_min=-4
+
+# disable wireless hw
+dtoverlay=disable-bt
+dtoverlay=disable-wifi
+
+# disable leds
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=on
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
+dtparam=eth_led0=14
+dtparam=eth_led1=14
+
+# disable hw interfaces
+dtparam=audio=off
+dtparam=i2c_arm=off
+dtparam=i2c_vc=off
+dtparam=i2s=off
+dtparam=spi=off
+start_x=0
+
+# disable video output
+gpu_mem=16
+disable_splash=1
+hdmi_blanking=2
+
+# reduce usb power consumption
+max_usb_current=0
+dtparam=eee=on
+dtparam=eth_max_speed=100
